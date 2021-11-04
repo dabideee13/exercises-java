@@ -1,3 +1,5 @@
+// Source: https://gist.github.com/anonymous/2863936
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
