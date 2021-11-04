@@ -1,5 +1,3 @@
-// Source: https://gist.github.com/anonymous/2863936
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
