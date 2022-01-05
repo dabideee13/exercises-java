@@ -2,60 +2,55 @@ import java.util.*;
 
 public class Main {
 
-    // public static String sample = "the cow jumped over the moon";
-    public static String SAMPLE = "THE COW JUMPED OVER THE MOON";
-
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String userInput;
         String choice = "Y";
-        Scanner userInput = new Scanner(System.in);
 
         while (true) {
             if (choice.equals("Y")) {
 
-                System.out.println("Input: ");
-                String inputString = userInput.next();
-
-                List<String> input = toLista(inputString);
-                ArrayList<String> input2 = toArrayList(input);
-                countVowels(input2);
+                System.out.print("Input: \n");
+                // userInput = scan.nextLine();
+                userInput = scan.nextLine();
+                userInput = userInput.toLowerCase();
+                countVowels(userInput);
 
                 System.out.print("Do you want to do it again? Y/N\n");
-                choice = userInput.next().toUpperCase().strip();
+                choice = scan.nextLine().toUpperCase().strip();
 
             } else if (choice.equals("N")) {
                 break;
 
             } else {
-                System.out.print("Invalid choice.");
+                System.out.println("Invalid choice.");
                 break;
-
             }
 
         }
-
     }
 
-    public static List<String> toLista(String str) {
-        return Arrays.asList(str.toLowerCase().split(" "));
-    }
+    public static void countVowels(String userInput) {
+        int vowelA = 0, vowelE = 0, vowelI = 0, vowelO = 0, vowelU = 0;
 
-    public static ArrayList<String> toArrayList(List<String> myList) {
-        ArrayList<String> arl = new ArrayList<String>();
-        for (Object object : myList) {
-            arl.add((String) object);
+        for(int x = 0; x <= userInput.length() - 1; x++) {
+            if(userInput.charAt(x) == 97)
+            vowelA++;
+            else if(userInput.charAt(x) == 101)
+            vowelE++;
+            else if(userInput.charAt(x) == 105)
+            vowelI++;
+            else if(userInput.charAt(x) == 111)
+            vowelO++;
+            else if(userInput.charAt(x) == 117)
+            vowelU++;
         }
-        return arl;
+
+        System.out.println("A: " + vowelA);
+        System.out.println("E: " + vowelE);
+        System.out.println("I: " + vowelI);
+        System.out.println("O: " + vowelO);
+        System.out.println("U: " + vowelU);
 
     }
-
-    public static void countVowels(ArrayList<String> vowels) {
-        String arrayToString = vowels.toString();
-        int length = arrayToString.length();
-        System.out.println("A: " + (length - arrayToString.replace("a", "").length()));
-        System.out.println("E: " + (length - arrayToString.replace("e", "").length()));
-        System.out.println("I: " + (length - arrayToString.replace("i", "").length()));
-        System.out.println("O: " + (length - arrayToString.replace("o", "").length()));
-        System.out.println("U: " + (length - arrayToString.replace("u", "").length()));
-    }
-
 }
